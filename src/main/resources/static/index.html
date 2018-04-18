@@ -3,13 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
+
+    <link href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </head>
 
 
 <body ng-app="ImageViewer">
 
 <div ng-controller="ImageViewerController">
-    <h5>{{msg}}</h5>
+
+    <div class="container-fluid">
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Album</th>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="image in images">
+                <td>{{image.albumId}}</td>
+                <td>{{image.id}}</td>
+                <td>{{image.title}}</td>
+                <td>><img ng-src="{{image.thumbnailUrl}}"></td>
+                <td><img ng-src="{{image.url}}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
 </div>
 
 

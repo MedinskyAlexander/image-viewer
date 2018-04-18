@@ -2,13 +2,17 @@
 
 angular.module('ImageViewer').controller('ImageViewerController', ['$scope', 'ImageViewerService', function ($scope, ImageViewerService) {
 
+    $scope.images = [];
+
     $scope.getImages = function () {
         ImageViewerService.getImages()
-            .success(function (response) {
+            .then(function (response) {
                 console.log(response);
+                if (response) {
+                    $scope.images = response.data;
+                }
             });
     };
 
     $scope.getImages();
-
 }]);

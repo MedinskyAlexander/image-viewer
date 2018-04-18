@@ -5,7 +5,7 @@ angular.module('ImageViewer').factory('ImageViewerService', ['$http', function (
     var srv = {};
 
     srv.getImages = function () {
-        return $http.get('/images');
+        return $http.get('/api/images');
     };
 
     return srv;
